@@ -23,7 +23,7 @@ Having the step 1 in mind, in this step we changed the last argument of the exec
 
 - We did some research on exploit database and we find out that all we needed to do is use add the UserID as 1 in the URL.
 
-![Exploit](exploit.png)
+![Exploit](Exploit.png)
 
 - And we finally logged in as administrator
 
