@@ -46,4 +46,14 @@ By running the Task 6 program (from the code requested to be compiled), with set
 
 ![Login as Admin](adminlogin.png)
 
-- Dispite of changing the url to loggin in as admin, we need to generate a token to verify the email. It will not be hard to gerenate since the verification code was simply an MD5 hash of the time of the request base64 JSON-encoded.
+- Dispite of changing the url to loggin in as admin, we need to generate a token to verify the email. It will not be hard to gerenate since the verification code was simply an MD5 hash of the time of the request base64 JSON-encoded. So we downloaded the pyhton script from exploit-db.com and runned it.
+
+![Run the exploit](exploit_script.png)
+
+- It gerenated 3 links so one of them should work. We runned the first and successefully logged in as admin.
+
+![Successefuly logged in](hacked.png)
+
+- After that we just need to go to fsi.fe.up.pt:5001/wp-admin/edit.php and capture the other flag
+
+![Captured the flag](flag.png)
