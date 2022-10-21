@@ -4,6 +4,64 @@
 On the terminal, after running the a32.out or the a64.out files, a shell is generated. Initially this shell is placed inside the folder that contains those same files and allows us to write any shellcode and execute it.
 
 ## Task 2
+We are supposed to run an exploit in the given C file:
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+/* Changing this size will change the layout of the stack.
+ * Instructors can change this value each year, so students
+ * won't be able to use the solutions from the past.
+ */
+#ifndef BUF_SIZE
+#define BUF_SIZE 100
+#endif
+
+void dummy_function(char *str);
+
+int bof(char *str)
+{
+    char buffer[BUF_SIZE];
+
+    // The following statement has a buffer overflow problem 
+    strcpy(buffer, str);       
+
+    return 1;
+}
+
+int main(int argc, char **argv)
+{
+    char str[517];
+    FILE *badfile;
+
+    badfile = fopen("badfile", "r"); 
+    if (!badfile) {
+       perror("Opening badfile"); exit(1);
+    }
+
+    int length = fread(str, sizeof(char), 517, badfile);
+    printf("Input size: %d\n", length);
+    dummy_function(str);
+    fprintf(stdout, "==== Returned Properly ====\n");
+    return 1;
+}
+
+// This function is used to insert a stack frame of size 
+// 1000 (approximately) between main's and bof's stack frames. 
+// The function itself does not do anything. 
+void dummy_function(char *str)
+{
+    char dummy_buffer[1000];
+    memset(dummy_buffer, 0, 1000);
+    bof(str);
+}
+
+The file has a buffer overflow vunerability in the strcpy command because the function doesn't check for boundaries, that means that if the program is a root owned set-UID file we can feed the function a string that makes it spawn a root shell
+
+For this to be exploitable it is needed for the OS safeguards be turned off and for the the code to be compiled with the following flags 
+
+-z execstack -fno-stack-protector
 
 ## Task 3
 
