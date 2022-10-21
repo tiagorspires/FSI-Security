@@ -14,6 +14,7 @@ We are supposed to run an exploit in the given C file:
  * Instructors can change this value each year, so students
  * won't be able to use the solutions from the past.
  */
+ 
 #ifndef BUF_SIZE
 #define BUF_SIZE 100
 #endif
