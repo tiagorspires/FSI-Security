@@ -122,3 +122,45 @@ ret = buff + ebp + 200
 
 By compiling and executing our program exploit.py, we will generate the badfile content. 
 After running our program` ./stack` we shoud be able to gain control as a root, that is, a shell prompt will be available. 
+
+# Challenge 1
+Analyzing the source code of the program in question, you can see that it reads a file identified by the string meme_file.
+
+```c
+char meme_file[8] = "mem.txt\0";
+char buffer[20];
+```
+
+By modifying the content of this string, which by definition has the value mem.txt\0, it is possible to control the file that is being read.
+
+To do this, it is possible to take advantage of a buffer-overflow present in the program.
+
+The buffer string has 20 characters allocated, however, 28 characters are read by scanf.
+The extra 8 characters that we write will be inserted into the meme_file string.
+
+So, just write any 20 characters (bytes) in the terminal and add "flag.txt" at the end, so that the contents of meme_file will change and the file to be read will be the one containing the flag.
+
+```python
+r.sendline(b"aaaaaaaaaaaaaaaaaaaaflag.txt")
+```
+## Result:
+By running python3 exploit-example.py
+[image desafio1.jpg]
+
+# Challenge 2
+
+In the new version of the code, an extra check (val == 0xfefc2223) has been added to make it more difficult to read the file, however, this does not completely mitigate the problem as it is still possible to bypass it using a similar technique as in the previous challenge.
+
+```c
+char val[4] = "\xef\xbe\xad\xde";
+...
+if(*(int*)val == 0xfefc2223) { ... } else { ... }
+```
+
+The only added difficulty to this challenge that challenge 1 didn't have, was to write the Hex into the sendline to be accepted and use flag.txt afterwards.
+
+```python
+r.sendline(b'12345678912345678912\x23\x22\xfc\xfeflag.txt')
+```
+
+[img desafio2.jpg]
