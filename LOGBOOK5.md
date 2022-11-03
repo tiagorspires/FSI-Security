@@ -145,7 +145,7 @@ r.sendline(b"aaaaaaaaaaaaaaaaaaaaflag.txt")
 ```
 ## Result:
 By running python3 exploit-example.py
-![imagem CMD](https://git.fe.up.pt/fsi/fsi2223/l08g06/-/blob/main/desafio1.jpg)
+![imagem CMD](../desafio1.jpg)
 
 # Challenge 2
 
@@ -165,4 +165,4 @@ r.sendline(b'12345678912345678912\x23\x22\xfc\xfeflag.txt')
 
 ## Result:
 By running python3 exploit-example.py
-![imagem CMD](https://git.fe.up.pt/fsi/fsi2223/l08g06/-/blob/main/desafio2.jpg)
+![imagem CMD](../desafio2.jpg)
