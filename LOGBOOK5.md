@@ -145,7 +145,7 @@ r.sendline(b"aaaaaaaaaaaaaaaaaaaaflag.txt")
 ```
 ## Result:
 By running python3 exploit-example.py
-[image desafio1.jpg]
+![imagem CMD](https://git.fe.up.pt/fsi/fsi2223/l08g06/-/blob/main/desafio1.jpg)
 
 # Challenge 2
 
@@ -163,4 +163,6 @@ The only added difficulty to this challenge that challenge 1 didn't have, was to
 r.sendline(b'12345678912345678912\x23\x22\xfc\xfeflag.txt')
 ```
 
-[img desafio2.jpg]
+## Result:
+By running python3 exploit-example.py
+![imagem CMD](https://git.fe.up.pt/fsi/fsi2223/l08g06/-/blob/main/desafio2.jpg)
