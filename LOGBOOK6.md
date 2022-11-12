@@ -25,9 +25,9 @@ After using these inputs we can see that the output shows that the secret messag
 We successfully read the heap data by storing the address of the heap data in the stack and then using the %s format specifier at the right location so that it reads the stored memory address and then get the value from that address.
 
 
-##Task 3
+## Task 3
 
-###Task 3.A
+### Task 3.A
 In this task we need to change number variable.
 
 
@@ -37,7 +37,7 @@ Like we have done in task 2B, we have to access the address by making it the beg
 We can access it by using "%x" 64 times and changing the values for 63 times plus "%n".The reason for this is the same we used to crash the server and we can write to the address the pointer is pointing to.In this case pointing to where the secret variable was located.
 
 
-###Task 3.B
+### Task 3.B
 The difference between task 3B and 3A is in this one we have to change the secret variable like task 3A but also change it to a specific value: 0x5000
 
 We know "%n" print the number of characters printed in the string so far, and it will be able to write 0x5000. We must make it so that our string has 5000 characters before it.
