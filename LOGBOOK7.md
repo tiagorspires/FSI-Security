@@ -15,3 +15,15 @@ On the terminal, if we run the command "$ curl www.seed-server.com/unsafe_home.p
 ### Task 2.3
 
 
+
+--
+
+## Challenge 1
+To login as the admin, we just need to do the same thing as in the Task 2. So, all that was needed was to insert on the username: admin' Or'
+And we also needed to insert something on the password field since the website does not allow this field to be left empty, but the content it's not relevant at all.
+By logging in as the admin, we could see the flag{44e9441ad346fcdb0f0850669532ec10}.
+
+## Challenge 2
+
+
+
