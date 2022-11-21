@@ -13,8 +13,18 @@ This will change the query so that the hashed password is irrelevant.
 On the terminal, if we run the command "$ curl www.seed-server.com/unsafe_home.php?username=admin%27or%27 " we can login as an admin. On the terminal will be printed the html code with the data of all users.
 
 ### Task 2.3
+MySQL has a multileoption that prevents more than one sql statement. Basically with this option enabled, everytime we put a ';' (essencial to end a statement and start a new one) all of our input that goes after that gets commented, which will lead to a semantic error because our query will lose some important content and specific chars, ending up not corresponding to a correct sql statement when complemented with the sql code from the webpage.
 
+## Task 3
 
+### Task 3.1
+To modify Alice's salary we need to, on the 'Edit Profile' page, insert in one box (for example in the username one) the following sentence: ',salary = '40000
+This will include the variable 'salary' on the update statement and we can assign any value we want (int this case we updated the value from 20000 to 40000, doubling Alice's salary).
+
+### Task 3.2
+____(ainda falta fazer)____
+',salary = '1' WHERE ID = '20000';";
+',salary = '1' WHERE ID='2';";
 
 --
 
