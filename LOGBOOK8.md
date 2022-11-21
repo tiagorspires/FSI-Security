@@ -22,9 +22,8 @@ To modify Alice's salary we need to, on the 'Edit Profile' page, insert in one b
 This will include the variable 'salary' on the update statement and we can assign any value we want (int this case we updated the value from 20000 to 40000, doubling Alice's salary).
 
 ### Task 3.2
-____(ainda falta fazer)____
-',salary = '1' WHERE ID = '20000';";
-',salary = '1' WHERE ID='2';";
+As Alice, to change Boby's salary we need to change the 'id' on the 'where' clause. So to change Boby's salary to 1 dollar we just need to insert the following sentence on any box (for example in the username one): ',salary = '1' WHERE ID = '2';#
+This will insert the 'salary' variable on the update statement (just like in task 3.1) and the id used will be 2 (Boby's id, instead of Alice's). The inputed sentence also needs to have a '#' in order to comment the rest of the update statement, so it is overwritten by our code, otherwise we won't be able to change Boby's salary.
 
 --
 
