@@ -26,4 +26,23 @@ Ajax.open("GET", sendurl, true);
 Ajax.send();}</script>
 on the "About me" field on Samy's profile. On the text above what we needed to change was the 'sendurl' variable. The value of that variable basically is the url that we get when adding a friend (using the HTTP Header Live extension in our browser, see "logbook10 task4.png"). This url comes with some defined tokens that we must replace by the ones gotten by our script, so that the url has the correct updated tokens, that's why we keep the initial part of the url and then add the 'ts' and 'token' variables. Additional note: we can see that Samy's id is 59. If we wanted to do this for other users we just need to change the number on the url after "friend=" (for example, Alice is 56 and Charlie is 58).
 
+## CTF 10
+
+### Challenge 1
+
+The form is vulnerable to XSS. We can inject code that clicks the
+give flag by user:
+`<script>document.getElementById("giveflag").click();</script>`
+
+
+### Challenge 2
+##### Firstly we start by analysing what features are available to non-authenticated users:
+ - Login
+ - Speed Report
+ - Ping a Host
+##### We tried to blindly SQL inject the login form, with common used SQL injection commands but we were not successfull.
+##### We then proceeded to try to explore the ping a host system. We attempted to ping google.com
+##### By observing the results, we can assume that the server is probably using a terminal to run the unix command ping followed by the input that we give it.
+##### After knowing this we can now realize that the solution will come from using the cat command in this terminal. So we made use of && for an additional command after the ping: `(ping) google.com && cat /flags/flag.txt`
+
 
