@@ -26,4 +26,16 @@ Ajax.open("GET", sendurl, true);
 Ajax.send();}</script>
 on the "About me" field on Samy's profile. On the text above what we needed to change was the 'sendurl' variable. The value of that variable basically is the url that we get when adding a friend (using the HTTP Header Live extension in our browser, see "logbook10 task4.png"). This url comes with some defined tokens that we must replace by the ones gotten by our script, so that the url has the correct updated tokens, that's why we keep the initial part of the url and then add the 'ts' and 'token' variables. Additional note: we can see that Samy's id is 59. If we wanted to do this for other users we just need to change the number on the url after "friend=" (for example, Alice is 56 and Charlie is 58).
 
+# CTF 10
+
+## Desafio #1
+
+O formulário é vulneravél a XSS. Podemos injetar código que clica no botão de
+give flag pelo utilizador:
+
+`<script>document.getElementById("giveflag").click();</script>`
+
+Quando o admin for ver a página, clicará no botão de give flag.
+
+
 
